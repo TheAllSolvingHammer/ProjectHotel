@@ -11,5 +11,13 @@ namespace ProjectHotel
         {
             button1.Text = "Test";
         }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClientForm form = new AddClientForm();
+
+            form.ShowDialog();
+       
+        }
     }
 }
