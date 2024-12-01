@@ -15,9 +15,14 @@ namespace ProjectHotel
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClientForm form = new AddClientForm();
-
             form.ShowDialog();
-       
+
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRoomForm form = new AddRoomForm();
+            form.ShowDialog();
         }
     }
 }

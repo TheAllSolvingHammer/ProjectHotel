@@ -88,6 +88,7 @@
             roomToolStripMenuItem.Name = "roomToolStripMenuItem";
             roomToolStripMenuItem.Size = new Size(180, 22);
             roomToolStripMenuItem.Text = "Room";
+            roomToolStripMenuItem.Click += roomToolStripMenuItem_Click;
             // 
             // reservationToolStripMenuItem
             // 
