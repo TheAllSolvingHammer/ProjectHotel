@@ -24,5 +24,16 @@ namespace ProjectHotel
             AddRoomForm form = new AddRoomForm();
             form.ShowDialog();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservationForm form = new AddReservationForm();
+            form.ShowDialog();
+        }
     }
 }
