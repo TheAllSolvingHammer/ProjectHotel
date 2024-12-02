@@ -46,8 +46,21 @@
             checkBox1 = new CheckBox();
             textBox6 = new TextBox();
             label6 = new Label();
+            menuStrip1 = new MenuStrip();
+            menuToolStripMenuItem = new ToolStripMenuItem();
+            addToolStripMenuItem = new ToolStripMenuItem();
+            clientToolStripMenuItem = new ToolStripMenuItem();
+            roomToolStripMenuItem = new ToolStripMenuItem();
+            reservationToolStripMenuItem = new ToolStripMenuItem();
+            queryToolStripMenuItem = new ToolStripMenuItem();
+            availableRoomsToolStripMenuItem = new ToolStripMenuItem();
+            turnoverToolStripMenuItem = new ToolStripMenuItem();
+            clientInformationToolStripMenuItem = new ToolStripMenuItem();
+            graphicalExampleToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
@@ -200,11 +213,94 @@
             label6.TabIndex = 16;
             label6.Text = "label6";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, exitToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1033, 24);
+            menuStrip1.TabIndex = 17;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addToolStripMenuItem, queryToolStripMenuItem });
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(50, 20);
+            menuToolStripMenuItem.Text = "Menu";
+            // 
+            // addToolStripMenuItem
+            // 
+            addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientToolStripMenuItem, roomToolStripMenuItem, reservationToolStripMenuItem });
+            addToolStripMenuItem.Name = "addToolStripMenuItem";
+            addToolStripMenuItem.Size = new Size(180, 22);
+            addToolStripMenuItem.Text = "Add";
+            // 
+            // clientToolStripMenuItem
+            // 
+            clientToolStripMenuItem.Name = "clientToolStripMenuItem";
+            clientToolStripMenuItem.Size = new Size(180, 22);
+            clientToolStripMenuItem.Text = "Client";
+            clientToolStripMenuItem.Click += clientToolStripMenuItem_Click;
+            // 
+            // roomToolStripMenuItem
+            // 
+            roomToolStripMenuItem.Name = "roomToolStripMenuItem";
+            roomToolStripMenuItem.Size = new Size(180, 22);
+            roomToolStripMenuItem.Text = "Room";
+            roomToolStripMenuItem.Click += roomToolStripMenuItem_Click;
+            // 
+            // reservationToolStripMenuItem
+            // 
+            reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
+            reservationToolStripMenuItem.Size = new Size(180, 22);
+            reservationToolStripMenuItem.Text = "Reservation";
+            reservationToolStripMenuItem.Click += reservationToolStripMenuItem_Click;
+            // 
+            // queryToolStripMenuItem
+            // 
+            queryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { availableRoomsToolStripMenuItem, turnoverToolStripMenuItem, clientInformationToolStripMenuItem, graphicalExampleToolStripMenuItem });
+            queryToolStripMenuItem.Name = "queryToolStripMenuItem";
+            queryToolStripMenuItem.Size = new Size(180, 22);
+            queryToolStripMenuItem.Text = "Query";
+            // 
+            // availableRoomsToolStripMenuItem
+            // 
+            availableRoomsToolStripMenuItem.Name = "availableRoomsToolStripMenuItem";
+            availableRoomsToolStripMenuItem.Size = new Size(172, 22);
+            availableRoomsToolStripMenuItem.Text = "Available rooms";
+            // 
+            // turnoverToolStripMenuItem
+            // 
+            turnoverToolStripMenuItem.Name = "turnoverToolStripMenuItem";
+            turnoverToolStripMenuItem.Size = new Size(172, 22);
+            turnoverToolStripMenuItem.Text = "Turnover";
+            // 
+            // clientInformationToolStripMenuItem
+            // 
+            clientInformationToolStripMenuItem.Name = "clientInformationToolStripMenuItem";
+            clientInformationToolStripMenuItem.Size = new Size(172, 22);
+            clientInformationToolStripMenuItem.Text = "Client Information";
+            // 
+            // graphicalExampleToolStripMenuItem
+            // 
+            graphicalExampleToolStripMenuItem.Name = "graphicalExampleToolStripMenuItem";
+            graphicalExampleToolStripMenuItem.Size = new Size(172, 22);
+            graphicalExampleToolStripMenuItem.Text = "Graphical Example";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(38, 20);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
             // AddClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1033, 447);
+            Controls.Add(menuStrip1);
             Controls.Add(label6);
             Controls.Add(textBox6);
             Controls.Add(checkBox1);
@@ -227,6 +323,8 @@
             Load += AddClientForm_Load;
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,5 +349,17 @@
         private Label label6;
         private TextBox textBox6;
         private CheckBox checkBox1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem addToolStripMenuItem;
+        private ToolStripMenuItem clientToolStripMenuItem;
+        private ToolStripMenuItem roomToolStripMenuItem;
+        private ToolStripMenuItem reservationToolStripMenuItem;
+        private ToolStripMenuItem queryToolStripMenuItem;
+        private ToolStripMenuItem availableRoomsToolStripMenuItem;
+        private ToolStripMenuItem turnoverToolStripMenuItem;
+        private ToolStripMenuItem clientInformationToolStripMenuItem;
+        private ToolStripMenuItem graphicalExampleToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }

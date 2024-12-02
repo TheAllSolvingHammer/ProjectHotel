@@ -176,5 +176,29 @@ namespace ProjectHotel
 
             displayData();
         }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRoomForm form = new AddRoomForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservationForm form = new AddReservationForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

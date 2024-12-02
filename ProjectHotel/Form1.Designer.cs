@@ -40,6 +40,7 @@
             turnoverToolStripMenuItem = new ToolStripMenuItem();
             clientInformationToolStripMenuItem = new ToolStripMenuItem();
             graphicalExampleToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, exitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(700, 24);
@@ -95,6 +96,7 @@
             reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
             reservationToolStripMenuItem.Size = new Size(180, 22);
             reservationToolStripMenuItem.Text = "Reservation";
+            reservationToolStripMenuItem.Click += reservationToolStripMenuItem_Click;
             // 
             // queryToolStripMenuItem
             // 
@@ -126,6 +128,13 @@
             graphicalExampleToolStripMenuItem.Name = "graphicalExampleToolStripMenuItem";
             graphicalExampleToolStripMenuItem.Size = new Size(172, 22);
             graphicalExampleToolStripMenuItem.Text = "Graphical Example";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(38, 20);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -159,5 +168,6 @@
         private ToolStripMenuItem turnoverToolStripMenuItem;
         private ToolStripMenuItem clientInformationToolStripMenuItem;
         private ToolStripMenuItem graphicalExampleToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
