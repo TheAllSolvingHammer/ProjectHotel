@@ -6,7 +6,6 @@ using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
@@ -46,6 +45,7 @@ namespace ProjectHotel
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
+                //connection.Open();
                 SqlCommand myCommand = new SqlCommand("SELECT * from TYPE", connection);
                 myCommand.Connection.Open();
                 SqlDataReader myReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
@@ -54,8 +54,8 @@ namespace ProjectHotel
                 {
 
                     comboBox1.Items.Add((myReader[1]));
-
-
+                    
+                    
                 }
 
 
@@ -104,16 +104,10 @@ namespace ProjectHotel
             displayData();
             displayCombo();
             comboBox1.SelectedIndex = 0;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.MultiSelect = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!validateDataInput())
-            {
-                return;
-            }
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -121,8 +115,8 @@ namespace ProjectHotel
                 Console.WriteLine("Database connection established successfully!");
                 SqlCommand sqlCommand = new SqlCommand("INSERT INTO room VALUES(@number,@roomtype,@floor,@beds,@price)", connection);
                 sqlCommand.Parameters.AddWithValue("@number", textBox1.Text);
-                sqlCommand.Parameters.AddWithValue("@roomtype", comboBox1.SelectedIndex + 1);
-
+                sqlCommand.Parameters.AddWithValue("@roomtype", comboBox1.SelectedIndex+1);
+        
                 sqlCommand.Parameters.AddWithValue("@floor", textBox2.Text);
                 sqlCommand.Parameters.AddWithValue("@beds", textBox3.Text);
                 sqlCommand.Parameters.AddWithValue("@price", textBox4.Text);
@@ -145,10 +139,6 @@ namespace ProjectHotel
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!validateDataInput())
-            {
-                return;
-            }
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -180,10 +170,6 @@ namespace ProjectHotel
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!validateDataInput())
-            {
-                return;
-            }
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -211,57 +197,6 @@ namespace ProjectHotel
             }
 
             displayData();
-        }
-
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int columnIndex = e.ColumnIndex;
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var selectedRow = dataGridView1.SelectedRows[0];
-                textBox1.Text = selectedRow.Cells[0].Value.ToString();
-                comboBox1.SelectedIndex = comboBox1.FindString(selectedRow.Cells[1].Value.ToString());
-                textBox2.Text = selectedRow.Cells[2].Value.ToString();
-                textBox3.Text = selectedRow.Cells[3].Value.ToString();
-                textBox4.Text = selectedRow.Cells[4].Value.ToString();
-
-            }
-        }
-        private bool validateDataInput()
-        {
-            bool flag = true;
-            string patternNumber = @"^\d{3}$";
-            string patternType = @"^[1-4]{1}$";
-            string patternFloorAndCount = @"^\d+$";
-            string patternPrice = @"^\d+$";
-
-          
-            errorProvider1.Clear();
-            if (!Regex.IsMatch(textBox1.Text, patternNumber))
-            {
-                errorProvider1.SetError(textBox2, "Wrong input");
-                flag = false;
-            }
-
-            if (!Regex.IsMatch(textBox2.Text, patternType))
-            {
-                errorProvider1.SetError(textBox3, "Wrong input");
-                flag = false;
-            }
-
-            if (!Regex.IsMatch(textBox3.Text, patternFloorAndCount))
-            {
-                errorProvider1.SetError(textBox1, "Wrong input");
-                flag = false;
-            }
-
-            if (!Regex.IsMatch(textBox4.Text, patternPrice))
-            {
-                errorProvider1.SetError(textBox4, "Wrong Input");
-                flag = false;
-            }
-
-            return flag;
         }
     }
 }
