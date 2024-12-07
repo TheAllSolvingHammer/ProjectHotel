@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             menuToolStripMenuItem = new ToolStripMenuItem();
             addToolStripMenuItem = new ToolStripMenuItem();
@@ -54,8 +55,10 @@
             textBox1 = new TextBox();
             comboBox1 = new ComboBox();
             dataGridView1 = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -258,6 +261,11 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(438, 218);
             dataGridView1.TabIndex = 27;
+            dataGridView1.RowHeaderMouseDoubleClick += dataGridView1_RowHeaderMouseDoubleClick;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // AddRoomForm
             // 
@@ -285,6 +293,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -317,5 +326,6 @@
         private TextBox textBox1;
         private ComboBox comboBox1;
         private DataGridView dataGridView1;
+        private ErrorProvider errorProvider1;
     }
 }

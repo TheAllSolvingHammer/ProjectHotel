@@ -12,6 +12,8 @@ using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using System.Data.Common;
 using System.Globalization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace ProjectHotel
 {
@@ -36,6 +38,8 @@ namespace ProjectHotel
             label6.Enabled = false;
             textBox6.Enabled = false;
             checkBox1.Text = "Show ID's";
+            dataGridView1.MultiSelect = false;
+            dataGridView1.AllowUserToAddRows = false;
             displayData();
         }
         private void displayData()
@@ -61,6 +65,11 @@ namespace ProjectHotel
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!validateDataInput())
+            {
+                return;
+            }
+          
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -115,14 +124,28 @@ namespace ProjectHotel
                 MessageBox.Show("Select checkbox first");
                 return;
             }
+            if (!validateDataInput())
+            {
+                return;
+            }
+            int result;
+            if (!int.TryParse(textBox6.Text, out result))
+            {
+                return;
+            }
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 Console.WriteLine("Database connection established successfully!");
-                SqlCommand sqlCommand = new SqlCommand("DELETE from client WHERE id=@id", connection);
+                SqlCommand sqlCommand = new SqlCommand("DELETE from client WHERE id=@id AND ucn=@egn AND first_name=@fname AND last_name=@lname AND address=@adres AND id_number=@idnum", connection);
 
                 sqlCommand.Parameters.AddWithValue("@id", textBox6.Text);
+                sqlCommand.Parameters.AddWithValue("@egn", textBox1.Text);
+                sqlCommand.Parameters.AddWithValue("@fname", textBox2.Text);
+                sqlCommand.Parameters.AddWithValue("@lname", textBox3.Text);
+                sqlCommand.Parameters.AddWithValue("@adres", textBox4.Text);
+                sqlCommand.Parameters.AddWithValue("@idnum", textBox5.Text);
                 int rows = sqlCommand.ExecuteNonQuery();
                 if (rows > 0)
                 {
@@ -147,6 +170,14 @@ namespace ProjectHotel
                 MessageBox.Show("Select checkbox first");
                 return;
             }
+            if (!validateDataInput())
+            {
+                return;
+            }
+            int result;
+            if(!int.TryParse(textBox6.Text,out result)){
+                return;
+            }
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -154,7 +185,7 @@ namespace ProjectHotel
                 Console.WriteLine("Database connection established successfully!");
                 SqlCommand sqlCommand = new SqlCommand("UPDATE client Set ucn=@egn, first_name=@fname, last_name=@lname, address=@adres, id_number=@idnum WHERE id=@id;", connection);
 
-                sqlCommand.Parameters.AddWithValue("@id", textBox6.Text);
+                sqlCommand.Parameters.AddWithValue("@id", result);
                 sqlCommand.Parameters.AddWithValue("@egn", textBox1.Text);
                 sqlCommand.Parameters.AddWithValue("@fname", textBox2.Text);
                 sqlCommand.Parameters.AddWithValue("@lname", textBox3.Text);
@@ -199,6 +230,63 @@ namespace ProjectHotel
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int columnIndex = e.ColumnIndex;
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0];
+                textBox6.Text = selectedRow.Cells[0].Value.ToString();
+                textBox1.Text=selectedRow.Cells[1].Value.ToString();
+                textBox2.Text = selectedRow.Cells[2].Value.ToString();
+                textBox3.Text = selectedRow.Cells[3].Value.ToString();
+                textBox4.Text = selectedRow.Cells[4].Value.ToString();
+                textBox5.Text = selectedRow.Cells[5].Value.ToString();
+
+            }
+        }
+        private bool validateDataInput()
+        {
+            bool flag = true;
+            string patternEgn = @"^\d{10}$";
+            string patternID = @"^\d{9}$";
+            string patternStreet = @"^[A-Za-z0-9.,\s]{1,60}$";
+
+            string patternName = @"^[A-Z][a-z.,]{0,29}$";
+            errorProvider1.Clear();
+            if (!Regex.IsMatch(textBox2.Text, patternName))
+            {
+                errorProvider1.SetError(textBox2, "Wrong input");
+                flag = false;
+            }
+
+            if (!Regex.IsMatch(textBox3.Text, patternName))
+            {
+                errorProvider1.SetError(textBox3, "Wrong input");
+                flag = false;
+            }
+
+            if (!Regex.IsMatch(textBox1.Text, patternEgn))
+            {
+                errorProvider1.SetError(textBox1, "Wrong input");
+                flag = false;
+            }
+
+            if (!Regex.IsMatch(textBox4.Text, patternStreet))
+            {
+                errorProvider1.SetError(textBox4, "Wrong Input");
+                flag = false;
+            }
+
+            if (!Regex.IsMatch(textBox5.Text, patternID))
+            {
+                errorProvider1.SetError(textBox5, "Wrong Input");
+                flag = false;
+            }
+
+            return flag;
         }
     }
 }
