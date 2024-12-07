@@ -46,21 +46,20 @@
             // 
             // button1
             // 
-            button1.Location = new Point(168, 127);
+            button1.Location = new Point(147, 95);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(82, 22);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, exitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(800, 30);
+            menuStrip1.Size = new Size(700, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -68,34 +67,34 @@
             // 
             menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addToolStripMenuItem, queryToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(60, 24);
+            menuToolStripMenuItem.Size = new Size(50, 20);
             menuToolStripMenuItem.Text = "Menu";
             // 
             // addToolStripMenuItem
             // 
             addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientToolStripMenuItem, roomToolStripMenuItem, reservationToolStripMenuItem });
             addToolStripMenuItem.Name = "addToolStripMenuItem";
-            addToolStripMenuItem.Size = new Size(224, 26);
+            addToolStripMenuItem.Size = new Size(180, 22);
             addToolStripMenuItem.Text = "Add";
             // 
             // clientToolStripMenuItem
             // 
             clientToolStripMenuItem.Name = "clientToolStripMenuItem";
-            clientToolStripMenuItem.Size = new Size(169, 26);
+            clientToolStripMenuItem.Size = new Size(180, 22);
             clientToolStripMenuItem.Text = "Client";
             clientToolStripMenuItem.Click += clientToolStripMenuItem_Click;
             // 
             // roomToolStripMenuItem
             // 
             roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            roomToolStripMenuItem.Size = new Size(169, 26);
+            roomToolStripMenuItem.Size = new Size(180, 22);
             roomToolStripMenuItem.Text = "Room";
             roomToolStripMenuItem.Click += roomToolStripMenuItem_Click;
             // 
             // reservationToolStripMenuItem
             // 
             reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
-            reservationToolStripMenuItem.Size = new Size(169, 26);
+            reservationToolStripMenuItem.Size = new Size(180, 22);
             reservationToolStripMenuItem.Text = "Reservation";
             reservationToolStripMenuItem.Click += reservationToolStripMenuItem_Click;
             // 
@@ -103,52 +102,49 @@
             // 
             queryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { availableRoomsToolStripMenuItem, turnoverToolStripMenuItem, clientInformationToolStripMenuItem, graphicalExampleToolStripMenuItem });
             queryToolStripMenuItem.Name = "queryToolStripMenuItem";
-            queryToolStripMenuItem.Size = new Size(224, 26);
+            queryToolStripMenuItem.Size = new Size(180, 22);
             queryToolStripMenuItem.Text = "Query";
             // 
             // availableRoomsToolStripMenuItem
             // 
             availableRoomsToolStripMenuItem.Name = "availableRoomsToolStripMenuItem";
-            availableRoomsToolStripMenuItem.Size = new Size(224, 26);
+            availableRoomsToolStripMenuItem.Size = new Size(172, 22);
             availableRoomsToolStripMenuItem.Text = "Available rooms";
-            availableRoomsToolStripMenuItem.Click += availableRoomsToolStripMenuItem_Click;
             // 
             // turnoverToolStripMenuItem
             // 
             turnoverToolStripMenuItem.Name = "turnoverToolStripMenuItem";
-            turnoverToolStripMenuItem.Size = new Size(224, 26);
+            turnoverToolStripMenuItem.Size = new Size(172, 22);
             turnoverToolStripMenuItem.Text = "Turnover";
-            turnoverToolStripMenuItem.Click += turnoverToolStripMenuItem_Click;
             // 
             // clientInformationToolStripMenuItem
             // 
             clientInformationToolStripMenuItem.Name = "clientInformationToolStripMenuItem";
-            clientInformationToolStripMenuItem.Size = new Size(224, 26);
+            clientInformationToolStripMenuItem.Size = new Size(172, 22);
             clientInformationToolStripMenuItem.Text = "Client Information";
-            clientInformationToolStripMenuItem.Click += clientInformationToolStripMenuItem_Click;
             // 
             // graphicalExampleToolStripMenuItem
             // 
             graphicalExampleToolStripMenuItem.Name = "graphicalExampleToolStripMenuItem";
-            graphicalExampleToolStripMenuItem.Size = new Size(224, 26);
+            graphicalExampleToolStripMenuItem.Size = new Size(172, 22);
             graphicalExampleToolStripMenuItem.Text = "Graphical Example";
-            graphicalExampleToolStripMenuItem.Click += graphicalExampleToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(47, 24);
+            exitToolStripMenuItem.Size = new Size(38, 20);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 451);
+            ClientSize = new Size(700, 338);
             Controls.Add(button1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
