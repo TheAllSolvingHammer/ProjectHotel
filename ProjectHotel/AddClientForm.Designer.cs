@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
@@ -58,9 +59,12 @@
             clientInformationToolStripMenuItem = new ToolStripMenuItem();
             graphicalExampleToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            errorProvider1 = new ErrorProvider(components);
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -185,6 +189,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(593, 237);
             dataGridView1.TabIndex = 13;
+            dataGridView1.RowHeaderMouseDoubleClick += dataGridView1_RowHeaderMouseDoubleClick;
             // 
             // checkBox1
             // 
@@ -233,27 +238,27 @@
             // 
             addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientToolStripMenuItem, roomToolStripMenuItem, reservationToolStripMenuItem });
             addToolStripMenuItem.Name = "addToolStripMenuItem";
-            addToolStripMenuItem.Size = new Size(180, 22);
+            addToolStripMenuItem.Size = new Size(106, 22);
             addToolStripMenuItem.Text = "Add";
             // 
             // clientToolStripMenuItem
             // 
             clientToolStripMenuItem.Name = "clientToolStripMenuItem";
-            clientToolStripMenuItem.Size = new Size(180, 22);
+            clientToolStripMenuItem.Size = new Size(135, 22);
             clientToolStripMenuItem.Text = "Client";
             clientToolStripMenuItem.Click += clientToolStripMenuItem_Click;
             // 
             // roomToolStripMenuItem
             // 
             roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            roomToolStripMenuItem.Size = new Size(180, 22);
+            roomToolStripMenuItem.Size = new Size(135, 22);
             roomToolStripMenuItem.Text = "Room";
             roomToolStripMenuItem.Click += roomToolStripMenuItem_Click;
             // 
             // reservationToolStripMenuItem
             // 
             reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
-            reservationToolStripMenuItem.Size = new Size(180, 22);
+            reservationToolStripMenuItem.Size = new Size(135, 22);
             reservationToolStripMenuItem.Text = "Reservation";
             reservationToolStripMenuItem.Click += reservationToolStripMenuItem_Click;
             // 
@@ -261,7 +266,7 @@
             // 
             queryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { availableRoomsToolStripMenuItem, turnoverToolStripMenuItem, clientInformationToolStripMenuItem, graphicalExampleToolStripMenuItem });
             queryToolStripMenuItem.Name = "queryToolStripMenuItem";
-            queryToolStripMenuItem.Size = new Size(180, 22);
+            queryToolStripMenuItem.Size = new Size(106, 22);
             queryToolStripMenuItem.Text = "Query";
             // 
             // availableRoomsToolStripMenuItem
@@ -295,6 +300,15 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
             // AddClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -325,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -361,5 +376,7 @@
         private ToolStripMenuItem clientInformationToolStripMenuItem;
         private ToolStripMenuItem graphicalExampleToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private ErrorProvider errorProvider1;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
