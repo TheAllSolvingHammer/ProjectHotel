@@ -238,7 +238,7 @@
             // 
             addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientToolStripMenuItem, roomToolStripMenuItem, reservationToolStripMenuItem });
             addToolStripMenuItem.Name = "addToolStripMenuItem";
-            addToolStripMenuItem.Size = new Size(106, 22);
+            addToolStripMenuItem.Size = new Size(180, 22);
             addToolStripMenuItem.Text = "Add";
             // 
             // clientToolStripMenuItem
@@ -266,32 +266,36 @@
             // 
             queryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { availableRoomsToolStripMenuItem, turnoverToolStripMenuItem, clientInformationToolStripMenuItem, graphicalExampleToolStripMenuItem });
             queryToolStripMenuItem.Name = "queryToolStripMenuItem";
-            queryToolStripMenuItem.Size = new Size(106, 22);
+            queryToolStripMenuItem.Size = new Size(180, 22);
             queryToolStripMenuItem.Text = "Query";
             // 
             // availableRoomsToolStripMenuItem
             // 
             availableRoomsToolStripMenuItem.Name = "availableRoomsToolStripMenuItem";
-            availableRoomsToolStripMenuItem.Size = new Size(172, 22);
+            availableRoomsToolStripMenuItem.Size = new Size(180, 22);
             availableRoomsToolStripMenuItem.Text = "Available rooms";
+            availableRoomsToolStripMenuItem.Click += availableRoomsToolStripMenuItem_Click;
             // 
             // turnoverToolStripMenuItem
             // 
             turnoverToolStripMenuItem.Name = "turnoverToolStripMenuItem";
-            turnoverToolStripMenuItem.Size = new Size(172, 22);
+            turnoverToolStripMenuItem.Size = new Size(180, 22);
             turnoverToolStripMenuItem.Text = "Turnover";
+            turnoverToolStripMenuItem.Click += turnoverToolStripMenuItem_Click;
             // 
             // clientInformationToolStripMenuItem
             // 
             clientInformationToolStripMenuItem.Name = "clientInformationToolStripMenuItem";
-            clientInformationToolStripMenuItem.Size = new Size(172, 22);
+            clientInformationToolStripMenuItem.Size = new Size(180, 22);
             clientInformationToolStripMenuItem.Text = "Client Information";
+            clientInformationToolStripMenuItem.Click += clientInformationToolStripMenuItem_Click;
             // 
             // graphicalExampleToolStripMenuItem
             // 
             graphicalExampleToolStripMenuItem.Name = "graphicalExampleToolStripMenuItem";
-            graphicalExampleToolStripMenuItem.Size = new Size(172, 22);
+            graphicalExampleToolStripMenuItem.Size = new Size(180, 22);
             graphicalExampleToolStripMenuItem.Text = "Graphical Example";
+            graphicalExampleToolStripMenuItem.Click += graphicalExampleToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 

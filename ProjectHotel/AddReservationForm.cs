@@ -101,7 +101,7 @@ namespace ProjectHotel
                 SqlDataReader myReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
                 while (myReader.Read())
                 {
-                    String name = (String)myReader[2] +" "+ (String)myReader[3];
+                    String name = (String)myReader[2] + " " + (String)myReader[3];
                     int id = (int)myReader[0];
                     clientMap.Add(id, name);
                     comboBox1.Items.Add(new KeyValuePair<int, string>(id, name));
@@ -309,11 +309,39 @@ namespace ProjectHotel
                 textBox1.Text = selectedRow.Cells[0].Value.ToString();
                 dateTimePicker1.Value = DateTime.Parse(selectedRow.Cells[1].Value.ToString());
                 comboBox1.SelectedIndex = comboBox1.FindString(selectedRow.Cells[2].Value.ToString());
-                comboBox2.SelectedIndex=comboBox2.FindString(selectedRow.Cells[3].Value.ToString());
+                comboBox2.SelectedIndex = comboBox2.FindString(selectedRow.Cells[3].Value.ToString());
                 dateTimePicker2.Value = DateTime.Parse(selectedRow.Cells[4].Value.ToString());
                 dateTimePicker3.Value = DateTime.Parse(selectedRow.Cells[5].Value.ToString());
 
             }
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms form = new AvailableRooms();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover from = new Turnover();
+            this.Close();
+            from.ShowDialog();
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation form = new ClientInformation();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic example = new Graphic();
+            this.Close();
+            example.ShowDialog();
         }
     }
 }

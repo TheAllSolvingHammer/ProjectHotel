@@ -53,5 +53,52 @@ namespace ProjectHotel
                 MessageBox.Show("Error in db: " + ex.Message);
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClientForm form = new AddClientForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRoomForm form = new AddRoomForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservationForm form = new AddReservationForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            this.Close();
+            availableRooms.ShowDialog();
+        }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover turnover = new Turnover();
+            this.Close();
+            turnover.ShowDialog();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic example = new Graphic();
+            this.Close();
+            example.ShowDialog();
+        }
     }
 }

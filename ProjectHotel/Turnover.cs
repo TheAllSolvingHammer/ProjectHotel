@@ -33,7 +33,8 @@ namespace ProjectHotel
         {//den
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
                     Console.WriteLine("Database connection established successfully!");
                     string query = "SELECT * FROM Reservation WHERE start_date = @inputDate AND end_date = @inputDate";
                     SqlCommand sqlCommand = new SqlCommand(query, connection);
@@ -42,8 +43,8 @@ namespace ProjectHotel
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
-                    
-                }                
+
+                }
             }
             catch (Exception ex)
             {
@@ -60,9 +61,9 @@ namespace ProjectHotel
                 {
                     Console.WriteLine("Database connection established successfully!");
                     string query = "SELECT * FROM Reservation WHERE (MONTH(start_date) = @selectedMonth AND YEAR(start_date) = @selectedYear) AND(MONTH(end_date) = @selectedMonth AND YEAR(end_date) = @selectedYear)";
-                    SqlCommand command = new SqlCommand( query, connection);
+                    SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@selectedMonth", dateTimePicker2.Value.Month);
-                    command.Parameters.AddWithValue("@selectedYear",dateTimePicker2.Value.Year);
+                    command.Parameters.AddWithValue("@selectedYear", dateTimePicker2.Value.Year);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
@@ -163,6 +164,57 @@ namespace ProjectHotel
             {
                 MessageBox.Show("Error in db: " + ex.Message);
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClientForm form = new AddClientForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRoomForm form = new AddRoomForm();
+            this.Close();
+            form.ShowDialog();
+
+        }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservationForm form = new AddReservationForm();
+            this.Close();
+            form.ShowDialog();
+
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            this.Close();
+            availableRooms.ShowDialog();
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation clientInformation = new ClientInformation();
+            this.Close();
+            clientInformation.ShowDialog();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic example = new Graphic();
+            this.Close();
+            example.ShowDialog();
+
+
         }
     }
 }

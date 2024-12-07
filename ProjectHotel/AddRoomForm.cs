@@ -235,7 +235,7 @@ namespace ProjectHotel
             string patternFloorAndCount = @"^\d+$";
             string patternPrice = @"^\d+$";
 
-          
+
             errorProvider1.Clear();
             if (!Regex.IsMatch(textBox1.Text, patternNumber))
             {
@@ -262,6 +262,35 @@ namespace ProjectHotel
             }
 
             return flag;
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            this.Close();
+            availableRooms.ShowDialog();
+
+        }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover turnover = new Turnover();
+            this.Close();
+            turnover.ShowDialog();
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation clientInformation = new ClientInformation();
+            this.Close();
+            clientInformation.ShowDialog();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic example = new Graphic();
+            this.Close();
+            example.ShowDialog();
         }
     }
 }

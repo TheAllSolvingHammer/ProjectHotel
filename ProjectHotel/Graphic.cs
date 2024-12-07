@@ -42,12 +42,60 @@ namespace ProjectHotel
                 chart1.Series["ReservationCount"].XValueMember = "Month"; // Set X values to Month
                 chart1.Series["ReservationCount"].YValueMembers = "ReservationCount"; // Set Y values to ReservationCount
 
-                
+
                 chart1.ChartAreas[0].AxisX.Title = "Month";
                 chart1.ChartAreas[0].AxisY.Title = "Reservation Count";
 
                 chart1.Titles.Add("Reservations by Room and Month");
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClientForm form = new AddClientForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRoomForm form = new AddRoomForm();
+            this.Close();
+            form.ShowDialog();
+        }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservationForm form = new AddReservationForm();
+            this.Close();
+            form.ShowDialog();
+
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            this.Close();
+            availableRooms.ShowDialog();
+        }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover turnover = new Turnover();
+            this.Close();
+            turnover.ShowDialog();
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation clientInformation = new ClientInformation();
+            this.Close();
+            clientInformation.ShowDialog();
         }
     }
 }

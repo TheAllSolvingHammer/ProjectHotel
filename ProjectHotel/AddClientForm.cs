@@ -69,7 +69,7 @@ namespace ProjectHotel
             {
                 return;
             }
-          
+
             try
             {
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -175,7 +175,8 @@ namespace ProjectHotel
                 return;
             }
             int result;
-            if(!int.TryParse(textBox6.Text,out result)){
+            if (!int.TryParse(textBox6.Text, out result))
+            {
                 return;
             }
             try
@@ -239,7 +240,7 @@ namespace ProjectHotel
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
                 textBox6.Text = selectedRow.Cells[0].Value.ToString();
-                textBox1.Text=selectedRow.Cells[1].Value.ToString();
+                textBox1.Text = selectedRow.Cells[1].Value.ToString();
                 textBox2.Text = selectedRow.Cells[2].Value.ToString();
                 textBox3.Text = selectedRow.Cells[3].Value.ToString();
                 textBox4.Text = selectedRow.Cells[4].Value.ToString();
@@ -287,6 +288,35 @@ namespace ProjectHotel
             }
 
             return flag;
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            this.Close();
+            availableRooms.ShowDialog();
+        }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover turnover = new Turnover(); 
+            this.Close();
+            turnover.ShowDialog();
+
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation clientInformation = new ClientInformation();
+            this.Close();
+            clientInformation.ShowDialog();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic graphic = new Graphic();
+            this.Close();
+            graphic.ShowDialog();
         }
     }
 }
