@@ -35,5 +35,29 @@ namespace ProjectHotel
             AddReservationForm form = new AddReservationForm();
             form.ShowDialog();
         }
+
+        private void turnoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turnover turnover = new Turnover();
+            turnover.Show();
+        }
+
+        private void clientInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientInformation clientInformation = new ClientInformation();
+            clientInformation.Show();
+        }
+
+        private void graphicalExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphic graphic = new Graphic();
+            graphic.Show();
+        }
+
+        private void availableRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvailableRooms availableRooms = new AvailableRooms();
+            availableRooms.Show();
+        }
     }
 }
