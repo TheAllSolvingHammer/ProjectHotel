@@ -9,7 +9,7 @@ namespace ProjectHotel
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            button1.Text = "Test";
+            button1.Text = "Info";
         }
 
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,6 +58,11 @@ namespace ProjectHotel
         {
             AvailableRooms availableRooms = new AvailableRooms();
             availableRooms.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Credits to the developers "+ Environment.NewLine + "Yordan Simeonov "+ Environment.NewLine + "Lachezar Radushev");
         }
     }
 }
